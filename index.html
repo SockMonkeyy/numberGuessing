@@ -98,8 +98,13 @@
         <p class="h3 pt-3 pb-3 text-info" id="lastGuess"></p>
     </div>
 
+<<<<<<< HEAD
     <p id="maxtext" class="p-4 text-white">Enter Your Maximum Number or Leave Blank and Let Me Pick</p> 
     <input class="text-center mb-4" type="number" placeholder="Enter a number" id="inputText1"><br>
+=======
+    <p class="p-4 text-white">Enter Your Maximum Number or Leave Blank and Let Me Pick</p>
+   
+>>>>>>> 737e2aba4be62deda68447eba5872b7b855a1b13
  
     <button onclick="maximumNumber()" class="col-sm-2" id="sbm">Set Max</button>
 
@@ -125,8 +130,13 @@
 
     <script>
 
+<<<<<<< HEAD
 const maxtext = document.getElementById('maxtext');
         const inputText1 = document.getElementById('inputText1');
+=======
+
+        const inputText1 = document.getElementById('inputText');
+>>>>>>> 737e2aba4be62deda68447eba5872b7b855a1b13
         const setMax = document.getElementById('MaxNumOutput');
         const sbm = document.getElementById('sbm');
         const submitButton = document.getElementById('submitButton');
@@ -146,8 +156,12 @@ const maxtext = document.getElementById('maxtext');
 
 
         document.getElementById("submitButton").disabled = true;
+<<<<<<< HEAD
         document.getElementById("inputText").style.display = "none";
         document.getElementById("submitButton").style.display = "none";
+=======
+
+>>>>>>> 737e2aba4be62deda68447eba5872b7b855a1b13
         function maximumNumber() {
             maxiNum = Math.ceil(1000 / 100) * (100 + (5 * (Math.ceil(Math.random() * 10) + 1)));
             if (Number(inputText1.value) <= 0 || Number(inputText1.value) == null) {
@@ -167,11 +181,14 @@ const maxtext = document.getElementById('maxtext');
 
 
         function checkTarget() {
+<<<<<<< HEAD
             document.getElementById("inputText").style.display = "inline";
         document.getElementById("submitButton").style.display = "inline";
             document.getElementById("inputText1").style.display = "none";
             document.getElementById("maxtext").style.display = "none";
             document.getElementById("sbm").style.display = "none";
+=======
+>>>>>>> 737e2aba4be62deda68447eba5872b7b855a1b13
             document.getElementById("sbm").disabled = true;
             document.getElementById("inputText1").disabled = true;
             document.getElementById("submitButton").disabled = false;
@@ -276,4 +293,8 @@ const maxtext = document.getElementById('maxtext');
         crossorigin="anonymous"></script>
 </body>
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 737e2aba4be62deda68447eba5872b7b855a1b13
