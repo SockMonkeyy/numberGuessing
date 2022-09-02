@@ -92,25 +92,14 @@
     <div class="col-lg-12 p-4 form col-sm-6 text-center mt-5" id="container"></div>
     <div>
         <div class="h1 text-info text-center">Basic Number Guessing Game</div>
-        <p class="p-3 text-info text-center h4">You have 10 attempts to guess the correct number. The maximum Number
-            range varies, so good luck!</p>
-        <p class="text-info" style="font-size: 1.5rem;" id="MaxNumOutput"></p>
+        <p id="maintext" class="p-3 text-info text-center h4">You have 10 attempts to guess the correct number. Enter Your Maximum Number or Leave Blank and Let Me Pick</p>
+        <p class="" style="font-size: 1.5rem;" id="MaxNumOutput"></p>
         <p class="h3 pt-3 pb-3 text-info" id="lastGuess"></p>
     </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    <p id="maxtext" class="p-4 text-white">Enter Your Maximum Number or Leave Blank and Let Me Pick</p> 
+    <p id="maxtext" class="p-4 text-white"></p>
     <input class="text-center mb-4" type="number" placeholder="Enter a number" id="inputText1"><br>
-=======
-    <p class="p-4 text-white">Enter Your Maximum Number or Leave Blank and Let Me Pick</p>
-   
->>>>>>> 737e2aba4be62deda68447eba5872b7b855a1b13
-=======
-    <p id="maxtext" class="p-4 text-white">Enter Your Maximum Number or Leave Blank and Let Me Pick</p> 
-    <input class="text-center mb-4" type="number" placeholder="Enter a number" id="inputText1"><br>
->>>>>>> ed54a9f779aa71b4bca136c7a34a8c2208d767c4
- 
+
     <button onclick="maximumNumber()" class="col-sm-2" id="sbm">Set Max</button>
 
     <p class="col-sm 8 h3 pt-3 pb-3 text-info" id="outputText">Enter a number below:</p>
@@ -129,22 +118,14 @@
 
 
 
-        <p class="outcome pt-3 pb-3 text-warning"></p>
+        <p class="outcome pt-3 pb-3"></p>
 
     </div>
 
     <script>
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ed54a9f779aa71b4bca136c7a34a8c2208d767c4
-const maxtext = document.getElementById('maxtext');
+        const mainText = document.getElementById('maintext');
+        const maxtext = document.getElementById('maxtext');
         const inputText1 = document.getElementById('inputText1');
-=======
-
-        const inputText1 = document.getElementById('inputText');
->>>>>>> 737e2aba4be62deda68447eba5872b7b855a1b13
         const setMax = document.getElementById('MaxNumOutput');
         const sbm = document.getElementById('sbm');
         const submitButton = document.getElementById('submitButton');
@@ -157,24 +138,17 @@ const maxtext = document.getElementById('maxtext');
         let lastGuessInvalid = document.getElementById('lastGuessInvalid');
         const lowOrHi = document.querySelector('.lowOrHi');
         let guessCount = 1;
-        let resetButton;
         let remaining = 10;
 
 
 
 
         document.getElementById("submitButton").disabled = true;
-<<<<<<< HEAD
-<<<<<<< HEAD
         document.getElementById("inputText").style.display = "none";
+        document.getElementById("reset").style.display = "none";
+        document.getElementById("outputText").style.display = "none";
         document.getElementById("submitButton").style.display = "none";
-=======
-
->>>>>>> 737e2aba4be62deda68447eba5872b7b855a1b13
-=======
-        document.getElementById("inputText").style.display = "none";
-        document.getElementById("submitButton").style.display = "none";
->>>>>>> ed54a9f779aa71b4bca136c7a34a8c2208d767c4
+        inputText1.focus();
         function maximumNumber() {
             maxiNum = Math.ceil(1000 / 100) * (100 + (5 * (Math.ceil(Math.random() * 10) + 1)));
             if (Number(inputText1.value) <= 0 || Number(inputText1.value) == null) {
@@ -185,64 +159,66 @@ const maxtext = document.getElementById('maxtext');
             }
             else {
                 PlayerMax = Number(inputText1.value)
-                targetNum = Math.ceil((PlayerMax / ((Math.floor((Math.random() * 10) + (Math.floor(Math.random()*6 +1)))))));
+                targetNum = Math.ceil((PlayerMax / ((Math.floor((Math.random() * 10) + (Math.floor(Math.random() * 6 + 1)))))));
                 console.log(PlayerMax, targetNum);
             }
             checkTarget()
+            inputText.focus();
             return (targetNum, PlayerMax)
         }
 
 
         function checkTarget() {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ed54a9f779aa71b4bca136c7a34a8c2208d767c4
+            document.getElementById("maintext").style.display = "none";
+            document.getElementById("lastGuessInvalid").style.display = "none";
+            document.getElementById("reset").style.display = "inline";
+            document.getElementById("outputText").style.display = "inline";
             document.getElementById("inputText").style.display = "inline";
-        document.getElementById("submitButton").style.display = "inline";
+            document.getElementById("submitButton").style.display = "inline";
             document.getElementById("inputText1").style.display = "none";
             document.getElementById("maxtext").style.display = "none";
             document.getElementById("sbm").style.display = "none";
-<<<<<<< HEAD
-=======
->>>>>>> 737e2aba4be62deda68447eba5872b7b855a1b13
-=======
->>>>>>> ed54a9f779aa71b4bca136c7a34a8c2208d767c4
             document.getElementById("sbm").disabled = true;
             document.getElementById("inputText1").disabled = true;
             document.getElementById("submitButton").disabled = false;
             setMax.textContent = `Your Maximum Number is ${PlayerMax}`;
+            setMax.style.color = "#0dcaf0"
+            outcome.style.color = 'white';
             const userGuess = Number(inputText.value)
-            if (userGuess === 0 || userGuess === NaN || userGuess === null || userGuess < 1) {
+            if (userGuess === 0 || userGuess === NaN || userGuess === null || userGuess < 1 && guessCount === 1) {
+                document.getElementById("lastGuessInvalid").style.display = "inline";
                 lastGuessInvalid.textContent = `Please Enter a valid Number`
 
                 return false;
             }
             if (guessCount === 1) {
                 lastGuess.textContent = `Previous guesses: `;
-                lastGuessInvalid.textContent = ``
+                
+                document.getElementById("lastGuessInvalid").style.display = "none";
             }
             lastGuess.textContent += userGuess + ', ';
             remaining--
-            lastGuessInvalid.textContent = ``
+           
             if (userGuess === NaN) {
                 outcome.textContent = `Please Enter a number`
                 return false;
             }
             if (userGuess === targetNum) {
-                outcome.textContent = `Congratulations! You got it right! Your Number was ${targetNum}!`;
-                outcome.style.backgroundColor = 'green';
-                outcome.style.color = 'white';
+                setMax.textContent = `Congratulations! You got it right! Your Number was ${targetNum}!`;
+             setMax.style.color = "white"
                 lowOrHi.textContent = '';
+                outcome.textContent = 'Correct!!';
+                outcome.style.color = 'green';
                 setGameOver();
             } else if (guessCount === 10) {
-                outcome.textContent = `!!!GAME OVER!!! Your Number was ${targetNum}`;
-                outcome.style.backgroundColor = 'red';
+                setMax.textContent = `!!!GAME OVER!!! Your Number was ${targetNum}`;
                 lowOrHi.textContent = '';
+                setMax.style.color = "red"
                 setGameOver();
             } else {
+                outcome.style.color = '#E4A11B';
                 outcome.textContent = 'Wrong!';
-                lastGuessInvalid.textContent = ``
+                document.getElementById("lastGuessInvalid").style.display = "none";
                 if (userGuess < targetNum) {
                     lowOrHi.textContent = `Last guess was too low! You have ${remaining} attempt(s) remaining`;
 
@@ -312,8 +288,4 @@ const maxtext = document.getElementById('maxtext');
         crossorigin="anonymous"></script>
 </body>
 
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> 737e2aba4be62deda68447eba5872b7b855a1b13
